@@ -1,17 +1,18 @@
-import react from "react";
+import React from "react";
 
 const Age = () => {
   return (
     <>
-      <h1>age</h1>
+      <h1>Who can join?</h1>
       <ul
         style={{
           listStyle: "none",
         }}
       >
-        <li>7-12 years old</li>
+        <li>7-13 years old</li>
         <li>Patience</li>
-        <li>Willingnes to learn</li>
+        <li>Willingness to learn</li>
+        <li>No experience required</li>
       </ul>
     </>
   );
