@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react';
 import {Box, useMediaQuery} from '@material-ui/core'
 import { useTheme } from '@material-ui/styles';
-import { Icon } from '@iconify/react'
-import sendCircle from '@iconify/icons-mdi/send-circle'
 import emailjs from 'emailjs-com';
 
 import './styles.css'
@@ -36,15 +34,18 @@ const formInputs = [
 ]
 
 const Form = () => {
+  const form = useRef();
+
+
   function sendEmail(e) {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        'service_1nwpeyk',
-        'template_g9g42q9',
-        e.target,
-        'user_P07Tx1xVAjmyvUS92nW0A'
+        'service_tllnani',
+        'template_9hdxgm9',
+        form.current,
+        'user_Li6o2jgML8vjEfZoCXQQc'
       )
       .then(
         (result) => {
@@ -60,15 +61,14 @@ const Form = () => {
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm')); 
   return (
-    <form onSubmit={sendEmail} className="form">
+    <form ref={form} onSubmit={sendEmail} className="form">
       <Box style={matchesSM ? {width: '92vw'} : {}}></Box>
       {formInputs.map(input => (
         <label key={input.label} id={input.id} className="form-label">
           {input.type === 'textarea' ? (
-            <textarea disabled className="formField form-textarea" placeholder={input.placeholder} />
+            <textarea className="formField form-textarea" placeholder={input.placeholder} />
           ) : (
             <input
-              disabled
               className="formField form-input"
               type={input.type}
               placeholder={input.placeholder}
@@ -77,7 +77,7 @@ const Form = () => {
         </label>
       ))}
       <div className="buttonOuter text-end">
-        <button disabled className="form-submit" type="submit">I'm under construction!</button>
+        <button className="form-submit" type="submit">I'm under construction!</button>
       </div>
       
     </form>
