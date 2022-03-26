@@ -54,7 +54,6 @@ const ContactUs = () => {
                   <div className="headingContent">
                     <h2>Want to join one of our virtual meet-ups?</h2>
                     <p>Send us a message and we'll get back to you! </p>
-                    <p>Our form is currently under construction! Please email us directly at <strong>christianschrader12@gmail.com</strong></p>
                   </div>
                 </Box>
                 {!matchesSM && <Form />}
